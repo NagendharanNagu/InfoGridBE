@@ -132,6 +132,7 @@ const findOneAndUpdate = async (
  */
 const deleteById = async (model, id, lean = true) => {
   try {
+    console.log(model, id, lean);
     let query = model.findByIdAndDelete(id);
     if (lean) query = query.lean();
     return await query.exec();

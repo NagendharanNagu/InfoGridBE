@@ -52,3 +52,23 @@ exports.getuserDetails= async (req, res) => {
     });
   }
 }
+
+exports.deleteUser = async (req, res) =>{
+  try{
+    const {id} = req.query;
+    var deleteUserDetails = await UserRepository.deleteById(id)
+    console.log(deleteUserDetails,'test',id);
+    res.status(200).json({
+      success: true,
+      message: "User deleted successfully",
+      data: deleteUserDetails
+    });
+  }
+  catch(error){
+    res.status(500).json({
+      success: false,
+      message: "Error deleting the User",
+      error: error.message
+    });
+  }
+}
