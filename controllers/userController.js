@@ -53,6 +53,19 @@ exports.getuserDetails= async (req, res) => {
   }
 }
 
+exports.updateUser = async (req,res) =>{
+  try{
+    console.log(req)
+  }
+  catch(error){
+    res.status(500).json({
+      success: false,
+      message: "Error updating the User",
+      error: error.message
+    });
+  }
+}
+
 exports.deleteUser = async (req, res) =>{
   try{
     const {id} = req.query;
